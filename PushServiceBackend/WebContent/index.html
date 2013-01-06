@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>iOS Push Notification Service</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="js/jquery-latest.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.form.min.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function () {
+    $("#notification-form").ajaxForm({success:function (e, t, n, r) {
+        if (e == "true") {
+            console.log("Success");
+            $('.btn').button('complete');
+        } else {
+            console.log("Error");
+            $('.btn').button('complete');
+            }}})})
+    </script>
+    
+  </head>
+  <body>
+  <div class="container">
+    <h1>iOS Push Notification Service</h1>
+    <form id="notification-form" action="PushServiceController" method="post">
+  <fieldset>
+    <label>Alert text</label>
+    <input type="text" placeholder="Some text" name="alert-text">
+    <label>Badge number</label>
+    <input type="text" placeholder="1" name="badge-number">
+    <label class="checkbox">
+      <input type="checkbox" name="sound" value="demo" checked> With Sound
+    </label>
+    <button type="submit" class="btn" data-complete-text="Finished!">Submit</button>
+  </fieldset>
+</form>
+</div>
+  </body>
+</html>
